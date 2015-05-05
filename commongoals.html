@@ -1,0 +1,26 @@
+<head>
+<title>COMMONGOALS I wanna make you send</title>
+</head>
+<body>
+
+{{> loginButtons}}
+<ul class="nav nav-pills">
+<li><a href="/">Home</a></li>
+<li><a href="/problems">Problems</a> </li>
+<li><a href="/add-problem">Add a problem</a> </li>
+</ul>
+
+</body>
+
+<template name="Home">
+  <h1>everybody send together right now</h1>
+</template>
+
+<template name="Problems">
+  <h1>Boulder Problems</h1>
+  <ul>
+  {{#each problems}}
+  <li><a href="{{pathFor route='EditProblem' data=this}}">{{name}}</a></li>
+  {{/each}}
+  </ul>
+</template>

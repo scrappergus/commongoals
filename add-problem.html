@@ -1,0 +1,39 @@
+<template name="AddProblem">
+  <h1>What's your problem?</h1>
+
+  <form class="add-problem">
+          <div class="form-group">
+              <label for="problem-name">The name of the problem</label>
+              <input type="text" name="name" class="form-control" id="problem-name" placeholder="A clever little pun, an inside joke never told">
+          </div>
+  </form>
+  
+
+  <ul>
+  {{#each problems}}
+  <li>{{name}}</li>
+  {{/each}}
+  </ul>
+
+</template>
+
+<template name="EditProblem">
+  <form class="edit-problem">
+          <div class="form-group">
+              <input type="hidden" name="_id" value="{{_id}}">
+              <label for="problem-name">The name of the problem</label>
+              <input type="text" name="name" value="{{name}}" class="form-control" id="problem-name" placeholder="A clever little pun, an inside joke never told">
+
+              <label for="problem-name">GPS</label>
+              <input type="text" name="lat" value="{{lat}}" class="form-control" id="problem-lat" placeholder="Latitude">
+              <input type="text" name="long" value="{{long}}" class="form-control" id="problem-long" placeholder="Longitude">
+
+
+              <input type="submit">
+          </div>
+
+          <div class="map-container">
+              {{> googleMap name="problemMap" options=problemMapOptions}}
+          </div>
+  </form>
+</template>
